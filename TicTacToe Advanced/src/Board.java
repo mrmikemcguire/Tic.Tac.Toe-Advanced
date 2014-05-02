@@ -1,6 +1,7 @@
 public class Board
 	{	
 	static String [][] board;
+	static int [][] valueTable;
 	
 	public static void fillBoardWithBlankSpaces()
 		{
