@@ -1,16 +1,28 @@
 public class Board
 	{	
-	static String [][] board;
-	static int [][] valueTable;
+	static String [][] board = new String [3][3];
+	static int [][] valueTable = new int [3][3];
 	
 	public static void fillBoardWithBlankSpaces()
 		{
-		board = new String [3][3];
+		//board = new String [3][3];
 		for(int i=0;i<3;i++)
 			{
 			for(int j=0;j<3;j++)
 				{
 				board[i][j] = " ";
+				}
+			}
+		}
+	
+	public static void fillTableWithZeroes()
+		{
+		//valueTable = new int [3][3];
+		for(int i=0;i<3;i++)
+			{
+			for(int j=0;j<3;j++)
+				{
+				valueTable[i][j] = 0;
 				}
 			}
 		}
