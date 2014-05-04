@@ -1,7 +1,7 @@
 public class PlayGame
 	{
-	static int currentColumnPlay;
-	static int currentRowPlay;
+	static int column;
+	static int row;
 
 	public static void main(String[] args)
 		{
@@ -13,16 +13,21 @@ public class PlayGame
 		while (!Board.isWonGame())
 			{
 			HumanPlayer.inputPlayerMove();
-			Board.board[currentRowPlay][currentColumnPlay] = HumanPlayer.playerMarker;
-			Board.valueTable[currentRowPlay][currentColumnPlay] = 2;
+			Board.board[row][column] = HumanPlayer.playerMarker;
+			Board.valueTable[row][column] = 2;
 			ComputerPlayer.checkTile = true;
 			ComputerPlayer.moveFound = false;
 			Board.displayBoard();
 			
 			//ComputerPlayer.makeRandomMoves();
+			
 			ComputerPlayer.makeGoodMoves();
-			//Board.board[currentRowPlay][currentColumnPlay] = HumanPlayer.computerMarker;
-			Board.valueTable[currentRowPlay][currentColumnPlay] = 5;
+		System.out.println("The row is " + row);
+		System.out.println("The column is " + column);
+			
+			Board.board[row][column] = HumanPlayer.computerMarker;
+			Board.valueTable[row][column] = 5;
+		
 
 			Board.displayBoard();
 			}
@@ -30,7 +35,7 @@ public class PlayGame
 	
 	public static boolean isIllegalMove()
 		{
-		if (!Board.board[currentRowPlay][currentColumnPlay].equals(" "))
+		if (!Board.board[row][column].equals(" "))
 			{
 			return true;
 			}

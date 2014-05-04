@@ -5,7 +5,7 @@ public class ComputerPlayer
 	static int randomRow, randomColumn;
 	static int x, y, i, j, lineSum;
 	static boolean moveFound = false;
-	static boolean checkTile;
+	static boolean checkTile = false;
 	
 	public static void makeRandomMoves()
 		{
@@ -16,8 +16,8 @@ public class ComputerPlayer
 			double randomNumber2 = Math.random();
 			randomColumn = (int) ((randomNumber2 * 10) %3);	
 	
-			PlayGame.currentColumnPlay = randomColumn;
-			PlayGame.currentRowPlay = randomRow;
+			PlayGame.column = randomColumn;
+			PlayGame.row = randomRow;
 			PlayGame.isIllegalMove();
 			}
 		while (PlayGame.isIllegalMove());
@@ -29,8 +29,10 @@ public class ComputerPlayer
 		
 		// check for a winning move on each row
 		
-		if(moveFound = false)
+		if(moveFound == false)
 			{
+			System.out.println("check for a winning move on each row");
+
 			for (i = 0; i < 3; i++)		// notice that i is for checking the row
 				{
 				lineSum = 0;
@@ -45,6 +47,8 @@ public class ComputerPlayer
 								{
 								Board.board[i][j] = HumanPlayer.computerMarker;
 								//setTableValue();
+								PlayGame.row = i;
+								PlayGame.column = j;
 								moveFound = true;
 								}
 							}
@@ -55,7 +59,7 @@ public class ComputerPlayer
 		
 		// check for a winning move on each column
 
-		if(moveFound = false)
+		if(moveFound == false)
 			{
 			for (j = 0; j < 3; j++)		// notice that j is for checking the row
 				{
@@ -71,6 +75,8 @@ public class ComputerPlayer
 								{
 								Board.board[i][j] = HumanPlayer.computerMarker;
 								//setTableValue();
+								PlayGame.row = i;
+								PlayGame.column = j;
 								moveFound = true;
 								}
 							}
@@ -95,6 +101,8 @@ public class ComputerPlayer
 							{
 							Board.board [i][i] = HumanPlayer.computerMarker;
 							//setTableValue2();
+							PlayGame.row = i;
+							PlayGame.column = j;
 							moveFound = true;
 							}
 						}
@@ -118,6 +126,8 @@ public class ComputerPlayer
 							{
 							Board.board [i][2 - i] = HumanPlayer.computerMarker;
 							//setTableValue3();
+							PlayGame.row = i;
+							PlayGame.column = j;
 							moveFound = true;
 							}
 						}
@@ -142,6 +152,8 @@ public class ComputerPlayer
 								{
 								Board.board [i][j] = HumanPlayer.computerMarker;
 								//setTableValue();
+								PlayGame.row = i;
+								PlayGame.column = j;
 								moveFound = true;
 								}
 							}
@@ -168,6 +180,8 @@ public class ComputerPlayer
 								{
 								Board.board [i][j] = HumanPlayer.computerMarker;
 								//setTableValue();
+								PlayGame.row = i;
+								PlayGame.column = j;
 								moveFound = true;
 								}
 							}
@@ -192,6 +206,8 @@ public class ComputerPlayer
 							{
 							Board.board [i][i] = HumanPlayer.computerMarker;
 							//setTableValue2();
+							PlayGame.row = i;
+							PlayGame.column = i;
 							moveFound = true;
 							}
 						}
@@ -215,6 +231,8 @@ public class ComputerPlayer
 							{
 							Board.board [i][2 - i] = HumanPlayer.computerMarker;
 							//setTableValue3();
+							PlayGame.row = i;
+							PlayGame.column = 2 - i;
 							moveFound = true;
 							}
 						}
@@ -223,14 +241,19 @@ public class ComputerPlayer
 			}
 		
 		// play in the center if possible
-		
-		System.out.println("moveFound is " + moveFound);
-		System.out.println(Board.board [1][1]);
+		if (moveFound == false)
+			{
+			System.out.println("moveFound is " + moveFound);
+			System.out.println(Board.board [1][1]);
+			}
 		if ((moveFound == false) && (Board.board [1][1].equals(" ")))
 			{
+			System.out.println("This shouldn't execute if B2..");
 			Board.board [1][1] = HumanPlayer.computerMarker;
 			i = 1;
 			j = 1;
+			PlayGame.row = i;
+			PlayGame.column = j;
 			setTableValue();
 			moveFound = true;
 			}
@@ -239,19 +262,22 @@ public class ComputerPlayer
 		
 		if (moveFound == false)
 			{
-			while(checkTile == false)
-				{
-				Random randomNumber = new Random();
-				PlayGame.currentRowPlay = randomNumber.nextInt(3);
-				Random randomNumber2 = new Random();
-				PlayGame.currentColumnPlay = randomNumber.nextInt(3);
-				if (Board.board [PlayGame.currentRowPlay][PlayGame.currentColumnPlay].equals(" "))
-					{
-					Board.board [PlayGame.currentRowPlay][PlayGame.currentColumnPlay] = HumanPlayer.computerMarker;
-					setTableValue();
-					checkTile = true;
-					}
-				}
+			System.out.println("This opens the random number section");
+//			while(checkTile == false)
+//				{
+//				System.out.println("Generate random number here");
+//				Random randomNumber = new Random();
+//				PlayGame.row = randomNumber.nextInt(3);
+//				Random randomNumber2 = new Random();
+//				PlayGame.column = randomNumber.nextInt(3);
+//				if (Board.board [PlayGame.row][PlayGame.column].equals(" "))
+//					{
+//					Board.board [PlayGame.row][PlayGame.column] = HumanPlayer.computerMarker;
+//					setTableValue();
+//					checkTile = true;
+//					}
+//				}
+			makeRandomMoves();
 			}
 		return Board.board;
 		}
