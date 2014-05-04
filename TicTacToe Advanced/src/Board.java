@@ -5,24 +5,11 @@ public class Board
 	
 	public static void fillBoardWithBlankSpaces()
 		{
-		//board = new String [3][3];
 		for(int i=0;i<3;i++)
 			{
 			for(int j=0;j<3;j++)
 				{
 				board[i][j] = " ";
-				}
-			}
-		}
-	
-	public static void fillTableWithZeroes()
-		{
-		//valueTable = new int [3][3];
-		for(int i=0;i<3;i++)
-			{
-			for(int j=0;j<3;j++)
-				{
-				valueTable[i][j] = 0;
 				}
 			}
 		}
@@ -45,7 +32,7 @@ public class Board
 			(board[1][0].equals(board[1][1]) && board[1][1].equals(board[1][2]) && !board[1][1].equals(" ")) ||
 			(board[2][0].equals(board[2][1]) && board[2][1].equals(board[2][2]) && !board[2][1].equals(" ")) ||
 			(board[0][0].equals(board[1][0]) && board[1][0].equals(board[2][0]) && !board[1][0].equals(" ")) ||				
-			(board[0][1].equals(board[1][1]) && board[1][1].equals(board[1][2]) && !board[1][1].equals(" ")) ||
+			(board[0][1].equals(board[1][1]) && board[1][1].equals(board[2][1]) && !board[1][1].equals(" ")) ||
 			(board[0][2].equals(board[1][2]) && board[1][2].equals(board[2][2]) && !board[1][2].equals(" ")) ||
 			(board[0][0].equals(board[1][1]) && board[1][1].equals(board[2][2]) && !board[1][1].equals(" ")) ||
 			(board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0]) && !board[1][1].equals(" ")))

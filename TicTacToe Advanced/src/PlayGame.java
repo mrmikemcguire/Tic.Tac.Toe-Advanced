@@ -6,7 +6,6 @@ public class PlayGame
 	public static void main(String[] args)
 		{
 		Board.fillBoardWithBlankSpaces();
-		//Board.fillTableWithZeroes();
 		Board.displayBoard();
 		HumanPlayer.choosePlayerMarker();
 		
@@ -20,15 +19,10 @@ public class PlayGame
 			Board.displayBoard();
 			
 			//ComputerPlayer.makeRandomMoves();
-			
 			ComputerPlayer.makeGoodMoves();
-		System.out.println("The row is " + row);
-		System.out.println("The column is " + column);
-			
+
 			Board.board[row][column] = HumanPlayer.computerMarker;
 			Board.valueTable[row][column] = 5;
-		
-
 			Board.displayBoard();
 			}
 		}
