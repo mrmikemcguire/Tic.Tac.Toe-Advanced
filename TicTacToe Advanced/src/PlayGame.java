@@ -8,7 +8,8 @@ public class PlayGame
 		Board.fillBoardWithBlankSpaces();
 		Board.displayBoard();
 		HumanPlayer.choosePlayerMarker();
-		
+		ComputerPlayer.chooseAILevel();
+
 		while (!Board.isWonGame())
 			{
 			HumanPlayer.inputPlayerMove();
@@ -17,10 +18,14 @@ public class PlayGame
 			ComputerPlayer.checkTile = true;
 			ComputerPlayer.moveFound = false;
 			Board.displayBoard();
-			
-			//ComputerPlayer.makeRandomMoves();
-			ComputerPlayer.makeGoodMoves();
-
+			if (ComputerPlayer.difficultyLevel == 1)
+				{
+				ComputerPlayer.makeRandomMoves();
+				}
+			if (ComputerPlayer.difficultyLevel == 2)
+				{
+				ComputerPlayer.makeGoodMoves();
+				}
 			Board.board[row][column] = HumanPlayer.computerMarker;
 			Board.valueTable[row][column] = 5;
 			Board.displayBoard();

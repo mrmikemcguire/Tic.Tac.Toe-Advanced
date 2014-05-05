@@ -1,12 +1,25 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class ComputerPlayer
 	{
 	static int randomRow, randomColumn;
 	static int x, y, i, j, k, lineSum;
+	static int difficultyLevel;
 	static boolean moveFound = false;
 	static boolean checkTile = false;
 	static int counter = 0;
+	
+	public static int chooseAILevel()
+		{
+		System.out.println("What level of AI do you wish to play?");
+		System.out.println("(1) Drunken");
+		System.out.println("(2) Intelligent");
+		//System.out.println("(3) Unbeatable");
+		Scanner input = new Scanner(System.in);
+		difficultyLevel = input.nextInt();
+		return difficultyLevel;
+		}
 	
 	public static void makeRandomMoves()
 		{
