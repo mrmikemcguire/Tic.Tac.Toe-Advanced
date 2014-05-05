@@ -13,8 +13,8 @@ public class ComputerPlayer
 	public static int chooseAILevel()
 		{
 		System.out.println("What level of AI do you wish to play?");
-		System.out.println("(1) Drunken");
-		System.out.println("(2) Intelligent");
+		System.out.println("(1) Regis");
+		System.out.println("(2) Mullen");
 		//System.out.println("(3) Unbeatable");
 		Scanner input = new Scanner(System.in);
 		difficultyLevel = input.nextInt();
