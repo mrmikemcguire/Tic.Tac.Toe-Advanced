@@ -9,7 +9,7 @@ public class PlayGame
 		Board.displayBoard();
 		HumanPlayer.choosePlayerMarker();
 		ComputerPlayer.chooseAILevel();
-
+		
 		while (!Board.isWonGame())
 			{
 			HumanPlayer.inputPlayerMove();

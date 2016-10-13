@@ -17,19 +17,24 @@ public class HumanPlayer
 				{
 				case "A":
 				case "a":
-				PlayGame.row = 0;
-				break;
+						{
+						PlayGame.row = 0;
+						break;
+						}
 				case "B":
 				case "b":
-				PlayGame.row = 1;
-				break;
+						{
+						PlayGame.row = 1;
+						break;
+						}
 				case "C": 
 				case "c":
-				PlayGame.row = 2;
-				break;
+						{
+						PlayGame.row = 2;
+						break;
+						}
 				}
-			
-			PlayGame.column= Integer.parseInt(playerMove.substring(1)) - 1;
+			PlayGame.column = Integer.parseInt(playerMove.substring(1)) - 1;
 			System.out.println();
 			}
 				while (PlayGame.isIllegalMove());
