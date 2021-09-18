@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class ComputerPlayer
 	{
 	static int randomRow, randomColumn;
-	static int x, y, i, j, k, lineSum;
+	static int x, y, row, col, k, lineSum;
 	static int difficultyLevel;
 	static boolean moveFound = false;
 	static boolean checkTile = false;
@@ -60,21 +60,21 @@ public class ComputerPlayer
 		{
 		if(moveFound == false)
 			{
-			for (i = 0; i < 3; i++)		// notice that i is for checking the row
+			for (row = 0; row < 3; row++)		
 				{
 				lineSum = 0;
-				for (j = 0; j < 3; j++)
+				for (col = 0; col < 3; col++)
 					{
-					lineSum = lineSum + Board.valueTable [i][j];
+					lineSum += Board.valueTable [row][col];
 					if (lineSum == 10)
 						{
-						for (j = 0; j < 3; j++)
+						for (col = 0; col < 3; col++)
 							{
-							if (Board.board [i][j].equals(" "))
+							if (Board.board [row][col].equals(" "))
 								{
-								Board.board[i][j] = HumanPlayer.computerMarker;
-								PlayGame.row = i;
-								PlayGame.column = j;
+								Board.board[row][col] = HumanPlayer.computerMarker;
+								PlayGame.row = row;
+								PlayGame.column = col;
 								moveFound = true;
 								}
 							}
@@ -88,21 +88,21 @@ public class ComputerPlayer
 		{
 		if(moveFound == false)
 			{
-			for (j = 0; j < 3; j++)		// notice that j is for checking the row
+			for (col = 0; col < 3; col++)		
 				{
 				lineSum = 0;
-				for (i = 0; i < 3; i++)
+				for (row = 0; row < 3; row++)
 					{
-					lineSum = lineSum + Board.valueTable [i][j];
+					lineSum += Board.valueTable [row][col];
 					if (lineSum == 10)
 						{
 						for (k = 0; k < 3; k++)
 							{
-							if (Board.board [i][j].equals(" "))
+							if (Board.board [row][col].equals(" "))
 								{
-								Board.board[i][j] = HumanPlayer.computerMarker;
-								PlayGame.row = i;
-								PlayGame.column = j;
+								Board.board[row][col] = HumanPlayer.computerMarker;
+								PlayGame.row = row;
+								PlayGame.column = col;
 								moveFound = true;
 								}
 							}
@@ -120,18 +120,18 @@ public class ComputerPlayer
 		if(moveFound == false)
 			{
 			lineSum = 0;
-			for (i = 0; i < 3; i++)
+			for (row = 0; row < 3; row++)
 				{
-				lineSum = lineSum + Board.valueTable [i][i];
+				lineSum += Board.valueTable [row][row];
 				if (lineSum == 10)
 					{
-					for (i = 0; i < 3; i++)
+					for (row = 0; row < 3; row++)
 						{
-						if (Board.board [i][i].equals(" "))
+						if (Board.board [row][row].equals(" "))
 							{
-							Board.board [i][i] = HumanPlayer.computerMarker;
-							PlayGame.row = i;
-							PlayGame.column = j;
+							Board.board [row][row] = HumanPlayer.computerMarker;
+							PlayGame.row = row;
+							PlayGame.column = col;
 							moveFound = true;
 							}
 						}
@@ -144,18 +144,18 @@ public class ComputerPlayer
 		if(moveFound == false)
 			{
 			lineSum = 0;
-			for (i = 0; i < 3; i++)
+			for (row = 0; row < 3; row++)
 				{
-				lineSum = lineSum + Board.valueTable [i][2 - i];
+				lineSum += Board.valueTable [row][2 - row];
 				if (lineSum == 10)
 					{
-					for (i = 0; i < 3; i++)
+					for (row = 0; row < 3; row++)
 						{
-						if (Board.board [i][2 - i].equals(" "))
+						if (Board.board [row][2 - row].equals(" "))
 							{
-							Board.board [i][2 - i] = HumanPlayer.computerMarker;
-							PlayGame.row = i;
-							PlayGame.column = j;
+							Board.board [row][2 - row] = HumanPlayer.computerMarker;
+							PlayGame.row = row;
+							PlayGame.column = col;
 							moveFound = true;
 							}
 						}
@@ -168,21 +168,21 @@ public class ComputerPlayer
 		{
 		if(moveFound == false)
 			{
-			for (i = 0; i < 3; i++)
+			for (row = 0; row < 3; row++)
 				{
 				lineSum = 0;
-				for (j = 0; j < 3; j++)
+				for (col = 0; col < 3; col++)
 					{
-					lineSum = lineSum + Board.valueTable [i][j];
+					lineSum += Board.valueTable [row][col];
 					if (lineSum == 4)
 						{
-						for (j = 0; j < 3; j++)
+						for (col = 0; col < 3; col++)
 							{
-							if(Board.board [i][j].equals(" "))
+							if(Board.board [row][col].equals(" "))
 								{
-								Board.board [i][j] = HumanPlayer.computerMarker;
-								PlayGame.row = i;
-								PlayGame.column = j;
+								Board.board [row][col] = HumanPlayer.computerMarker;
+								PlayGame.row = row;
+								PlayGame.column = col;
 								moveFound = true;
 								}
 							}
@@ -196,21 +196,21 @@ public class ComputerPlayer
 		{
 		if(moveFound == false)
 			{
-			for (j = 0; j < 3; j++)
+			for (col = 0; col < 3; col++)
 				{
 				lineSum = 0;
-				for (i = 0; i < 3; i++)
+				for (row = 0; row < 3; row++)
 					{
-					lineSum = lineSum + Board.valueTable [i][j];
+					lineSum += Board.valueTable [row][col];
 					if (lineSum == 4)
 						{
-						for (i = 0; i < 3; i++)
+						for (row = 0; row < 3; row++)
 							{
-							if(Board.board [i][j].equals(" "))
+							if(Board.board [row][col].equals(" "))
 								{
-								Board.board [i][j] = HumanPlayer.computerMarker;
-								PlayGame.row = i;
-								PlayGame.column = j;
+								Board.board [row][col] = HumanPlayer.computerMarker;
+								PlayGame.row = row;
+								PlayGame.column = col;
 								moveFound = true;
 								}
 							}
@@ -228,18 +228,18 @@ public class ComputerPlayer
 		if(moveFound == false)
 			{
 			lineSum = 0;
-			for (i = 0; i < 3; i++)
+			for (row = 0; row < 3; row++)
 				{
-				lineSum = lineSum + Board.valueTable [i][i];
+				lineSum += Board.valueTable [row][row];
 				if (lineSum == 4)
 					{
-					for (i = 0; i < 3; i++)
+					for (row = 0; row < 3; row++)
 						{
-						if (Board.board [i][i].equals(" "))
+						if (Board.board [row][row].equals(" "))
 							{
-							Board.board [i][i] = HumanPlayer.computerMarker;
-							PlayGame.row = i;
-							PlayGame.column = i;
+							Board.board [row][row] = HumanPlayer.computerMarker;
+							PlayGame.row = row;
+							PlayGame.column = row;
 							moveFound = true;
 							}
 						}
@@ -253,18 +253,18 @@ public class ComputerPlayer
 		if(moveFound == false)
 			{
 			lineSum = 0;
-			for (i = 0; i < 3; i++)
+			for (row = 0; row < 3; row++)
 				{
-				lineSum = lineSum + Board.valueTable [i][2 - i];
+				lineSum += Board.valueTable [row][2 - row];
 				if (lineSum == 4)
 					{
-					for (i = 0; i < 3; i++)
+					for (row = 0; row < 3; row++)
 						{
-						if (Board.board [i][2 - i].equals(" "))
+						if (Board.board [row][2 - row].equals(" "))
 							{
-							Board.board [i][2 - i] = HumanPlayer.computerMarker;
-							PlayGame.row = i;
-							PlayGame.column = 2 - i;
+							Board.board [row][2 - row] = HumanPlayer.computerMarker;
+							PlayGame.row = row;
+							PlayGame.column = 2 - row;
 							moveFound = true;
 							}
 						}
@@ -278,10 +278,10 @@ public class ComputerPlayer
 		if ((moveFound == false) && (Board.board [1][1].equals(" ")))
 			{
 			Board.board [1][1] = HumanPlayer.computerMarker;
-			i = 1;
-			j = 1;
-			PlayGame.row = i;
-			PlayGame.column = j;
+			row = 1;
+			row = 1;
+			PlayGame.row = row;
+			PlayGame.column = row;
 			moveFound = true;
 			}
 		}
