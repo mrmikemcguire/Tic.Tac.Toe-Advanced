@@ -25,10 +25,8 @@ public class ComputerPlayer
 		{
 		do
 			{
-			double randomNumber1 = Math.random();
-			randomRow = (int) ((randomNumber1 * 10) %3);
-			double randomNumber2 = Math.random();
-			randomColumn = (int) ((randomNumber2 * 10) %3);	
+			randomRow = (int)(Math.random() * 3);
+			randomColumn = (int)(Math.random() * 3);	
 	
 			PlayGame.column = randomColumn;
 			PlayGame.row = randomRow;
