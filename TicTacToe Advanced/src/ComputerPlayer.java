@@ -31,6 +31,7 @@ public class ComputerPlayer
 			PlayGame.column = randomColumn;
 			PlayGame.row = randomRow;
 			PlayGame.isIllegalMove();
+			checkForTie();
 			}
 		while (PlayGame.isIllegalMove());
 		}
@@ -45,13 +46,12 @@ public class ComputerPlayer
 		checkForBlockingDiagonalMove();
 		playInCenter();
 		makeRandomMove();
-		checkForTie();
-	
 		return Board.board;
 		}
 	
 	public static void checkForTie()
 		{
+		counter = 0;
 		for(int row = 0; row < 3; row++)
 			{
 			for(int col = 0; col < 3; col++)
@@ -59,9 +59,7 @@ public class ComputerPlayer
 				if (!Board.board[row][col].equals(" "))
 					{
 					counter++;
-					System.out.println(counter);
 					}
-				
 				}
 			}
 		

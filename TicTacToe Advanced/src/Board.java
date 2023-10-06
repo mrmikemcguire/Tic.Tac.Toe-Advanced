@@ -38,6 +38,7 @@ public class Board
 			(board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0]) && !board[1][1].equals(" ")))
 			{
 			System.out.println("The game is over!");
+			System.exit(0);
 			return true;
 			}
 		return false;

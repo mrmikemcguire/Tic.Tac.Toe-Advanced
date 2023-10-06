@@ -18,6 +18,7 @@ public class PlayGame
 			ComputerPlayer.checkTile = true;
 			ComputerPlayer.moveFound = false;
 			Board.displayBoard();
+
 			if (ComputerPlayer.difficultyLevel == 1)
 				{
 				ComputerPlayer.makeRandomMoves();
@@ -29,6 +30,7 @@ public class PlayGame
 			Board.board[row][column] = HumanPlayer.computerMarker;
 			Board.valueTable[row][column] = 5;
 			Board.displayBoard();
+			ComputerPlayer.checkForTie();
 			}
 		}
 	
