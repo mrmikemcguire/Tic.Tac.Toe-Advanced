@@ -31,12 +31,6 @@ public class ComputerPlayer
 			PlayGame.column = randomColumn;
 			PlayGame.row = randomRow;
 			PlayGame.isIllegalMove();
-			counter++;
-			if (counter == 100)
-				{
-				System.out.println("It's a tie");
-				System.exit(0);
-				}
 			}
 		while (PlayGame.isIllegalMove());
 		}
@@ -51,7 +45,31 @@ public class ComputerPlayer
 		checkForBlockingDiagonalMove();
 		playInCenter();
 		makeRandomMove();
+		checkForTie();
+	
 		return Board.board;
+		}
+	
+	public static void checkForTie()
+		{
+		for(int row = 0; row < 3; row++)
+			{
+			for(int col = 0; col < 3; col++)
+				{
+				if (!Board.board[row][col].equals(" "))
+					{
+					counter++;
+					System.out.println(counter);
+					}
+				
+				}
+			}
+		
+		if (counter == 9 && !Board.isWonGame())
+			{
+			System.out.println("It's a tie.");
+			System.exit(0);
+			}
 		}
 	
 	public static void checkForWinningRowMove()
